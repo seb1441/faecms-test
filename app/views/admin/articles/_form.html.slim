@@ -1,0 +1,22 @@
+= simple_form_for(['admin', @item]) do |f|
+  == render 'fae/shared/form_header', header: @klass_name
+
+  main.content
+    = fae_input f, :title, input_class: 'slugger'
+    = fae_input f, :slug
+    / = fae_input f, :introduction
+    / = fae_input f, :body, markdown: true
+    = fae_datepicker f, :date
+
+    / = fae_association f, :article_category
+
+    = fae_image_form f, :hero_image
+    = fae_file_form f, :pdf
+    = fae_color_picker f, :introduction, label: 'Color'
+    = fae_checkbox f, :introduction, label: 'Checkbox'
+    = fae_radio f, :introduction, label: 'Radio'
+    = fae_pulldown f, :introduction, size: 'short', collection: [['testing', 1], ['gkaogkoagka', 2]], label: 'Pulldown'
+    = fae_multiselect f, :article_category, label: 'Multiselect'
+    = fae_datepicker f, :created_at, label: 'Datepicker'
+    = fae_daterange f, [:created_at, :updated_at], label: 'Daterange'
+    = fae_video_url f, :introduction, label: 'Video url'
